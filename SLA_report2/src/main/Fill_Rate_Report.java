@@ -207,7 +207,7 @@ public class Fill_Rate_Report {
 				}
 				else if (i == 5 && j == 2) { 
 					XSSFRichTextString richString = new XSSFRichTextString(
-							"\nTO DETERMINE # EXCLUSIVE JOBS FILLED\nFilter from the \"Closed\" tab:\n" + 
+							"\nTO DETERMINE # EXCLUSIVE JOBS REC'D\nFilter from the \"Closed\" tab:\n" + 
 									"1) Column J (Opened) ->\n filter by SLA quarter (ex: unselect all\n months except July, Aug, Sept for Q3\n SLA\n" +
 									"2) Column N (Vendor) ->\n filter by vendor name \n(ex: only select JTS)\n" +
 									"3) Column AI (Close Date) ->\n filter by SLA quarter (ex: unselect all\n months except July, Aug, Sept for Q3\n SLA\n" +
