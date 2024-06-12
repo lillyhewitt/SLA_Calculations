@@ -13,7 +13,7 @@ parse excel spreadsheet to create SLA reports for Entech
 9. Click Next to select the branches you want to clone, and then click Next again to set the local destination for the repository (want to clone main branch).
 10. May need to enter username (Github username) and password (Token generated first step)
 11. Click Finish to start the cloning process
-13. Right click project (SLA_report2) once cloned, click Build Path -> Configure Build Path -> Libraries -> Add Jars, then add all jar external files saved in folder named "Jar_Files" in this repo then click Apply and Close
+13. Right click project (SLA_report2) once cloned, click Build Path -> Configure Build Path -> Libraries -> Add External Jars, then add all jar external files saved in folder named "Jar_Files" in this repo then click Apply and Close
 14. Download NEW-IT Contractor-VG-Vendor Req Report and Resource Roster to local machine (I recommend saving both to Desktop for easy path configuration)
 15. Click run (circular green play button on top left of eclipse once project, SLA_report2, has been selected)
 16. Enter the inputs instructed and file should be created based on the path you provide
