@@ -17,6 +17,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Fill_Rate_Report {
+	// CHANGE to jobs received only in this quarter - maybe
+	
 	// create variables to store KPI calculations
 	public static String KPIexc = "";
 	public static String KPInon = "";
@@ -207,7 +209,7 @@ public class Fill_Rate_Report {
 				}
 				else if (i == 5 && j == 2) { 
 					XSSFRichTextString richString = new XSSFRichTextString(
-							"\nTO DETERMINE # EXCLUSIVE JOBS FILLED\nFilter from the \"Closed\" tab:\n" + 
+							"\nTO DETERMINE # EXCLUSIVE JOBS REC'D\nFilter from the \"Closed\" tab:\n" + 
 									"1) Column J (Opened) ->\n filter by SLA quarter (ex: unselect all\n months except July, Aug, Sept for Q3\n SLA\n" +
 									"2) Column N (Vendor) ->\n filter by vendor name \n(ex: only select JTS)\n" +
 									"3) Column AI (Close Date) ->\n filter by SLA quarter (ex: unselect all\n months except July, Aug, Sept for Q3\n SLA\n" +

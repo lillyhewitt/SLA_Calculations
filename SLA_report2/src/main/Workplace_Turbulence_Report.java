@@ -71,7 +71,6 @@ public class Workplace_Turbulence_Report {
 	}
 
 	// Find head count and num of resources completed this quarter by checking dates of each entry in the roster
-	// Find head count and num of resources completed this quarter by checking dates of each entry in the roster
 	private static void processRow(Row row, int quarter, int year) {
 		Cell endCell = row.getCell(17);  // Column R
 		Cell startCell = row.getCell(16);  // Column Q
