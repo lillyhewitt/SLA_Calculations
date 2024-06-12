@@ -81,7 +81,7 @@ public class QuarterCheck {
 		return false;
 	}
 	
-	// check if date is in future
+	// check if date is in past
 	public static boolean isDateInPast(Date date, int quarter, int year) {
 		SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.ENGLISH);
 		SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
