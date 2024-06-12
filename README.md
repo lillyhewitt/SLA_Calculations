@@ -2,7 +2,7 @@
 parse excel spreadsheet to create SLA reports for Entech 
 
 ## How to Use 
-1. Create Github Account, click Settings -> '<>'Developer Settings -> Personal Access Tokens -> Tokens (classic) -> Generate New Token (classic) -> Click "No Expiration" -> Generate Token
+1. Create Github Account, click Settings -> <>Developer Settings -> Personal Access Tokens -> Tokens (classic) -> Generate New Token (classic) -> Click "No Expiration" -> Generate Token
 2. Copy token and save somewhere on machine (recommend emailing yourself or putting in a google doc/word doc)
 3. Download Eclipse from https://www.eclipse.org/downloads/
 4. Download Git from https://www.git-scm.com/downloads
