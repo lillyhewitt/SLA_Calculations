@@ -47,7 +47,7 @@ public class Time_Accept_Report {
 				Cell dateCell = row.getCell(9);  // Column AI
 				if (dateCell != null) {
 					processRow(row, quarter, year);
-                }
+				}
 			}
 			wb.close();
 		} catch (Exception e) {

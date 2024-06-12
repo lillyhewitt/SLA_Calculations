@@ -133,8 +133,8 @@ public class SLA_Report {
 				Double kpiValue = extractDoubleFromString(kpiList.get(row - 3).toString());
 				cell4.setCellValue(kpiList.get(row - 3).toString());
 				setCellStyleBasedOnString(workbook, cell4, kpiValue, row);
-				
-				 // set Vendor Comments
+
+				// set Vendor Comments
 				Cell cell13 = rowObj.createCell(6);
 				if(row == 3) {
 					cell13.setCellValue(Respond_With_Resume_Report.excCount + " Exclusive in Q" + quarter);
@@ -201,7 +201,7 @@ public class SLA_Report {
 				cell12.setCellStyle(ExcelStyleUtil.sideSLAdescriptors(workbook));
 			}
 			sheet.setColumnWidth(6, 256 * 30);
-			
+
 			int indexVal = 0;
 			// Loop through the quarters
 			for(int quarterNum : quarters) {
@@ -212,7 +212,7 @@ public class SLA_Report {
 					if (rowQuart == null) {
 						rowQuart = sheet.createRow(row);
 					}
-					
+
 					Double newKPIValue = extractDoubleFromString(newKPIlist.get(row - 3).toString());
 					Cell cell5 = rowQuart.createCell(9 + indexVal);
 					cell5.setCellValue(newKPIlist.get(row - 3).toString());

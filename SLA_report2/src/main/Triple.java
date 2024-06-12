@@ -52,8 +52,8 @@ public class Triple {
 
 	public int calculateBusinessDays() {
 		if (date1 == null || date2 == null) {
-	        throw new IllegalArgumentException("Dates must not be null");
-	    }
+			throw new IllegalArgumentException("Dates must not be null");
+		}
 		Calendar startCal = new GregorianCalendar();
 		startCal.setTime(date1);
 		Calendar endCal = new GregorianCalendar();

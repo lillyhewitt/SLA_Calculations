@@ -71,7 +71,7 @@ public class Resume_Fraud_Report {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// Check if cell contains the word "old"
 	private static boolean containsOld(Cell cell) {
 		if (cell != null && cell.getCellType() == CellType.STRING) {

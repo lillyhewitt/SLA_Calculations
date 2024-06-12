@@ -17,7 +17,7 @@ public class VendorCheck {
 		}
 		return false;
 	}
-	
+
 	// Check if the vendor is just Entech
 	public static boolean isJustVendor(Cell cell) {
 		if (cell != null && cell.getCellType() == CellType.STRING) {
@@ -30,7 +30,7 @@ public class VendorCheck {
 		}
 		return false;
 	}
-	
+
 	// Check if the vendor is "All"
 	public static boolean isAllVendor(Cell cell) {
 		if (cell != null && cell.getCellType() == CellType.STRING) {

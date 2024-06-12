@@ -58,7 +58,7 @@ public class ExcelStyleUtil {
 
 		return slaHeaders;
 	}
-	
+
 
 	public static XSSFCellStyle sideSLAdescriptors(XSSFWorkbook workbook) {
 		XSSFCellStyle slaHeaders = workbook.createCellStyle();

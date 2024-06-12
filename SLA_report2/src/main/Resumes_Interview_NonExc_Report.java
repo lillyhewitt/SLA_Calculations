@@ -108,7 +108,7 @@ public class Resumes_Interview_NonExc_Report {
 			// Define the pattern to match "e - characters int M/D"
 			Pattern pattern = Pattern.compile("e\\s*- .* int\\s*(\\d{1,2}/\\d{1,2})");
 			Matcher matcher = pattern.matcher(cellValue);
-			
+
 			// If the pattern is found, add to count
 			while (matcher.find()) {
 				// Get the matched string
@@ -120,7 +120,7 @@ public class Resumes_Interview_NonExc_Report {
 					countInts++;
 				}
 			}
-			}
+		}
 		return countInts;
 	}
 

@@ -18,7 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Fill_Rate_Report {
 	// CHANGE to jobs received only in this quarter - maybe
-	
+
 	// create variables to store KPI calculations
 	public static String KPIexc = "";
 	public static String KPInon = "";
@@ -122,7 +122,7 @@ public class Fill_Rate_Report {
 		KPInon = "";
 		jobsFilledNon = 0;
 		jobsReceivedNon = 0;
-		
+
 		// Get jobs filled and received
 		read_From_Excel(filePath, quarter, year);
 		// Calculate KPI

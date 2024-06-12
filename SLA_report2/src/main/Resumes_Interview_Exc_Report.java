@@ -99,7 +99,7 @@ public class Resumes_Interview_Exc_Report {
 			list.add(Pair.create(submitted, interviews));
 		}
 	}
-	
+
 	private static int countInts(Cell cell) {
 		int countInts = 0;
 		if (cell != null && cell.getCellType() == CellType.STRING) {
@@ -108,7 +108,7 @@ public class Resumes_Interview_Exc_Report {
 			// Define the pattern to match "e - characters int M/D"
 			Pattern pattern = Pattern.compile("e\\s*- .* int\\s*(\\d{1,2}/\\d{1,2})");
 			Matcher matcher = pattern.matcher(cellValue);
-			
+
 			// If the pattern is found, add to count
 			while (matcher.find()) {
 				// Get the matched string
@@ -120,17 +120,17 @@ public class Resumes_Interview_Exc_Report {
 					countInts++;
 				}
 			}
-			}
+		}
 		return countInts;
 	}
 
 	public static String calculateKPI(int quarter, int year, String filePath) {
 		KPI = "";
 		list = new ArrayList<>();
-		
+
 		// Get active and submitted resumes
 		read_From_Excel(filePath, quarter, year);
-		
+
 		int sumResumes = 0;
 		int sumInterviews = 0;
 

@@ -164,11 +164,6 @@ public class Respond_With_Resume_Report {
 		// Get num of days between received job opening and first submission
 		read_From_Excel(filePath, quarter, year);
 
-		System.out.println("EXC: " + excDayCounter);
-		System.out.println("NONEXC: " + nonDayCounter);
-		System.out.println("EXC Count: " + excCount);
-		System.out.println("NONEXC Count: " + nonCount);
-
 		// Calculate KPI
 		KPIexc = (double) excDayCounter / excCount;
 
