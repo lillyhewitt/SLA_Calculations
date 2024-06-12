@@ -14,12 +14,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 // calls classes to read the Vendor Req Report and write the SLA report 
 public class Main {
 	public static void main(String[] args) {
-		// test file path
-		// String readFile = "C:\\Users\\lhewitt\\Desktop\\NEW-IT Contractor-VG-Vendor Req Report-2024-05-20.xlsx";
-		File writeFile = new File("C:\\Users\\lhewitt\\Desktop\\Entech IT Staff MON SLA XQ20XX.xlsx");
-		String fileReqPath = "C:\\Users\\lhewitt\\Desktop\\NEW-IT Contractor-VG-Vendor Req Report-2024-06-11.xlsx";
-		String fileEntechPath = "C:\\Users\\lhewitt\\Desktop\\Resource Roster.xlsx";
-
 		// Increase the minimum inflate ratio
 		ZipSecureFile.setMinInflateRatio(0.005);
 
@@ -52,7 +46,7 @@ public class Main {
 		}
 
 		System.out.println();
-/*
+
 		// ask user for files to read from
 		System.out.println("Please enter the file path for the req report (ex. C:\\Users\\lhewitt\\Desktop\\file.xlsx):\t");
 		String fileReqPath = scanner.nextLine();
@@ -62,7 +56,7 @@ public class Main {
 		// Create file to save workbook to
 		System.out.println("\nPlease enter full path to save new Excel Workbook to (ex. C:\\Users\\lhewitt\\Downloads\\Entech IT Staff MON SLA XQ20XX.xlsx) and click enter:\t");
 		String filePathFinal = scanner.nextLine();
-		File writeFile = new File(filePathFinal);  */
+		File writeFile = new File(filePathFinal);  
 
 		// Create Workbook
 		XSSFWorkbook workbook = new XSSFWorkbook();
