@@ -92,10 +92,17 @@ public class Offers_Declined_Report {
 	}
 
 	// Check if cell contains the word "decline"
+
 	private static boolean containsDecline(Cell cell) {
 		if (cell != null && cell.getCellType() == CellType.STRING) {
 			String cellValue = cell.getStringCellValue().toLowerCase();
-			return cellValue.contains("decline");
+			// Check if the cell value contains "e -" and "decline"
+			if (cellValue.contains("e -") && cellValue.contains("decline")) {
+				return true;
+			}
+			else if (cellValue.contains("e-") && cellValue.contains("decline")) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -104,7 +111,7 @@ public class Offers_Declined_Report {
 		KPI = "";
 		declinedOffers = 0;
 		numOffers = 0;
-		
+
 		// Get declined offers and total offers from File 
 		read_From_Excel(filePath, quarter, year);
 		// Calculate KPI
@@ -113,7 +120,7 @@ public class Offers_Declined_Report {
 		KPI = ratioFormatted;
 		return KPI;
 	}
-	
+
 	// Write Ratio Resumes to Interviews Exc to Excel file
 	public void write_Offers_Declined(XSSFWorkbook workbook, XSSFSheet sheet, int quarter, int year, String filePath) {
 		// Add merged regions for blue KPI Calc box
