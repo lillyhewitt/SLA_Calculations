@@ -13,9 +13,10 @@ parse excel spreadsheet to create SLA reports for Entech
 9. Click Next to select the branches you want to clone, and then click Next again to set the local destination for the repository (want to clone main branch).
 10. May need to enter username (Github username) and password (Token generated first step)
 11. Click Finish to start the cloning process
-13. Click run (circular green play button on top left of eclipse once project, SLA_report2, has been selected)
+13. Right click project (SLA_report2) once cloned, click Build Path -> Configure Build Path -> Libraries -> Add Jars, then add all jar external files saved in file named "Jar Files" in this repo then click Apply and Close
 14. Download NEW-IT Contractor-VG-Vendor Req Report and Resource Roster to local machine (I recommend saving both to Desktop for easy path configuration)
-15. Enter the inputs instructed and file should be created based on the path you provide
-16. To configure a path of both files: right click on the file, click properties then combine "Location", "name", and ".xlsx" together (ie. Location: C:\User\name\Desktop and Resource Roster would be C:\User\name\Desktop\Resource Roster.xlsx)
-17. Repeat for where you want to write your file to (ie. if you want to save to desktop, input path C:\User\name\Desktop\Entech IT Staff MON XQ20XX.xlsx)
-18. Once program completes, file will be saved to path you specified 
+15. Click run (circular green play button on top left of eclipse once project, SLA_report2, has been selected)
+16. Enter the inputs instructed and file should be created based on the path you provide
+17. To configure a path of both files: right click on the file, click properties then combine "Location", "name", and ".xlsx" together (ie. Location: C:\User\name\Desktop and Resource Roster would be C:\User\name\Desktop\Resource Roster.xlsx)
+18. Repeat for where you want to write your file to (ie. if you want to save to desktop, input path C:\User\name\Desktop\Entech IT Staff MON XQ20XX.xlsx)
+19. Once program completes, file will be saved to path you specified 
