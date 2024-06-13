@@ -35,7 +35,7 @@ public class Never_Starts_Report {
 
 			// check if terminations entry is found
 			boolean check = false;
-			
+
 			// find acceptances this quarter
 			for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
 				Row row = sheet.getRow(rowIndex);
@@ -43,7 +43,7 @@ public class Never_Starts_Report {
 					System.out.println("Skipping row " + rowIndex);
 					break; // Skip if the row is null
 				}
-				
+
 				Cell rcCell = row.getCell(3);  // Column D
 				Cell titleCell = row.getCell(0);  // Column A
 
@@ -73,14 +73,14 @@ public class Never_Starts_Report {
 					}
 				}
 			}
-			
+
 			// find rescinded acceptances this quarter
 			for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
 				Row row = sheet.getRow(rowIndex);
 				if (row == null) {
 					break; // Skip if the row is null
 				}
-				
+
 				// only read from Terminations table
 				if(check) {
 					Cell startCell = row.getCell(16);  // Column Q
@@ -117,13 +117,13 @@ public class Never_Starts_Report {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static String calculateKPI(int quarter, int year, String filePath) {
 		KPI = "";
 		list = new ArrayList<>();
 		acceptances = 0;
 		rescinded = 0;
-		
+
 		// Get never starts
 		read_From_Excel(filePath, quarter, year);
 		// Calculate KPI
@@ -132,5 +132,5 @@ public class Never_Starts_Report {
 		KPI = ratioFormatted;
 		return KPI;
 	}
-	
+
 }
