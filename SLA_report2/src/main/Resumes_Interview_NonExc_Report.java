@@ -106,7 +106,7 @@ public class Resumes_Interview_NonExc_Report {
 			String cellValue = cell.getStringCellValue().toLowerCase();
 
 			// Define the pattern to match "e - characters int M/D"
-			Pattern pattern = Pattern.compile("e\\s*- .* int\\s*(\\d{1,2}/\\d{1,2})");
+	        Pattern pattern = Pattern.compile("e\\s*- .* int(v)?\\s*(\\d{1,2}/\\d{1,2})");
 			Matcher matcher = pattern.matcher(cellValue);
 
 			// If the pattern is found, add to count
@@ -115,7 +115,7 @@ public class Resumes_Interview_NonExc_Report {
 				String match = matcher.group();
 
 				// Count each "int M/D" in the matched string
-				Matcher intMatcher = Pattern.compile("int\\s*\\d{1,2}/\\d{1,2}").matcher(match);
+	            Matcher intMatcher = Pattern.compile("int(v)?\\s*\\d{1,2}/\\d{1,2}").matcher(match);
 				while (intMatcher.find()) {
 					countInts++;
 				}

@@ -116,7 +116,7 @@ public class Respond_With_Resume_Report {
 			Pattern pattern = Pattern.compile("e\\s*- .* sub\\s*(\\d{1,2}/\\d{1,2})");
 			Matcher matcher = pattern.matcher(cellValue);
 
-			Pattern patternInt = Pattern.compile("e\\s*- .* sub\\s*(\\d{1,2}/\\d{1,2})(,\\s*int\\s*\\d{1,2}/\\d{1,2}|-\\s*int\\s*\\d{1,2}/\\d{1,2})");
+			Pattern patternInt = Pattern.compile("e\\s*- .* sub\\s*(\\d{1,2}/\\d{1,2})(,\\s*int(v)?\\s*\\d{1,2}/\\d{1,2}|-\\s*int(v)?\\s*\\d{1,2}/\\d{1,2})");
 			Matcher matcherInt = patternInt.matcher(cellValue);
 
 			// If the pattern is found, return the date
