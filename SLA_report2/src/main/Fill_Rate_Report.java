@@ -329,6 +329,13 @@ public class Fill_Rate_Report {
 				String calculateNonKPI = calculateNonKPI(quarter, year, filePath);
 				cell2.setCellValue(r == 6 ? calculateExcKPI : calculateNonKPI);
 				cell2.setCellStyle(ExcelStyleUtil.createYellowStyle(workbook));
+				Cell cell3 = row.createCell(8);
+				if(r == 6) {
+					cell3.setCellValue(" = " + jobsFilledExc + " / " + jobsReceivedExc + " *100");
+				} else {
+					cell3.setCellValue(" = " + jobsFilledNon + " / " + jobsReceivedNon + " *100");
+				}
+				cell3.setCellStyle(ExcelStyleUtil.createPlainTableStyle(workbook));
 			}
 			else if(r == 7) {
 				cell.setCellStyle(ExcelStyleUtil.createNavyTableStyle(workbook));
@@ -342,5 +349,6 @@ public class Fill_Rate_Report {
 		}
 		sheet.setColumnWidth(6, 256 * 20);
 		sheet.setColumnWidth(7, 256 * 20);
+		sheet.setColumnWidth(8, 256 * 15);
 	}
 }

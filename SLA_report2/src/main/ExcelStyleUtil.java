@@ -108,7 +108,8 @@ public class ExcelStyleUtil {
 		plaintableHeaderStyle.setTopBorderColor(IndexedColors.BLACK.getIndex());
 		plaintableHeaderStyle.setAlignment(HorizontalAlignment.CENTER);
 		plaintableHeaderStyle.setVerticalAlignment(VerticalAlignment.CENTER);
-
+		plaintableHeaderStyle.setWrapText(true);
+		
 		return plaintableHeaderStyle;
 	}
 

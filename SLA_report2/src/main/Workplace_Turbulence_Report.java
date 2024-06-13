@@ -241,9 +241,13 @@ public class Workplace_Turbulence_Report {
 				Cell cell2 = row.createCell(7);
 				cell2.setCellValue(calculateKPI(quarter, year, filePath));
 				cell2.setCellStyle(ExcelStyleUtil.createYellowStyle(workbook));
+				Cell cell3 = row.createCell(8);
+				cell3.setCellValue(" = " + numResources + " / " + headCount + " * 100");
+				cell3.setCellStyle(ExcelStyleUtil.createPlainTableStyle(workbook));
 			}
 		}
 		sheet.setColumnWidth(6, 256 * 44);
 		sheet.setColumnWidth(7, 256 * 10);
+		sheet.setColumnWidth(8, 256 * 15);
 	}
 }

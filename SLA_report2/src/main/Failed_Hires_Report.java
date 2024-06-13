@@ -269,9 +269,13 @@ public class Failed_Hires_Report {
 				Cell cell2 = row.createCell(7);
 				cell2.setCellValue(calculateKPI(quarter, year, filePath));
 				cell2.setCellStyle(ExcelStyleUtil.createYellowStyle(workbook));
+				Cell cell3 = row.createCell(8);
+				cell3.setCellValue(" = " + failedHires + " / " + headCount + " * 100");
+				cell3.setCellStyle(ExcelStyleUtil.createPlainTableStyle(workbook));
 			}
 		}
 		sheet.setColumnWidth(6, 256 * 20);
 		sheet.setColumnWidth(7, 256 * 20);
+		sheet.setColumnWidth(8, 256 * 15);
 	}
 }

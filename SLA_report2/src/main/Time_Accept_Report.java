@@ -275,6 +275,7 @@ public class Time_Accept_Report {
 			// Add merged regions ratio of resumes to interviews table
 			sheet.addMergedRegion(new CellRangeAddress(0, 1, 6+(interval*8), 9+(interval*8)));
 			sheet.addMergedRegion(new CellRangeAddress(2, 2, 6+(interval*8), 9+(interval*8)));
+			sheet.setColumnWidth(9+(interval*8), 256 * 50);
 
 			// set titles for position entry information
 			for(int r = 0; r < 309; r++) {
@@ -298,6 +299,7 @@ public class Time_Accept_Report {
 					cell.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 				}
 				else if(r == 3) {
+					row.setHeightInPoints(60);
 					Cell cell = row.createCell(6+(interval*8));
 					cell.setCellValue("Date rec'd");
 					cell.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
@@ -308,7 +310,7 @@ public class Time_Accept_Report {
 					cell3.setCellValue("weeks on hold");
 					cell3.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 					Cell cell4 = row.createCell(9+(interval*8));
-					cell4.setCellValue("Business Days");
+					cell4.setCellValue("Business Days = NETWORKDAYS(DATE REC'D,DATE FILLED)-(WEEKS ON HOLD*7)");
 					cell4.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 				}
 				else if(r > 3) {
