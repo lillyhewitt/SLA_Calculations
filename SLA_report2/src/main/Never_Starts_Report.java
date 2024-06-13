@@ -80,8 +80,8 @@ public class Never_Starts_Report {
 				if (row == null) {
 					break; // Skip if the row is null
 				}
-
-				// only read from Terminations table
+				
+				// only read from Rescinded Acceptance table
 				if(check) {
 					Cell startCell = row.getCell(16);  // Column Q
 
@@ -94,13 +94,13 @@ public class Never_Starts_Report {
 					}
 				}
 
-				// find beginning of Terminations table
+				// find beginning of Rescinded Acceptance table
 				Cell rescindedTitleCell = row.getCell(0);  // Column A
 				if (rescindedTitleCell != null && rescindedTitleCell.getCellType() == CellType.STRING && rescindedTitleCell.getStringCellValue().equals("Rescinded Acceptance/Withdrawn Candidates")) {
 					check = true;
 					rowIndex++;
 				}
-				// find end of Terminations table
+				// find end of Rescinded Acceptance table
 				else if (rescindedTitleCell != null && rescindedTitleCell.getCellType() == CellType.STRING
 						&& rescindedTitleCell.getStringCellValue().equals("Resume Fraud")) {
 					check = false;
@@ -126,6 +126,7 @@ public class Never_Starts_Report {
 
 		// Get never starts
 		read_From_Excel(filePath, quarter, year);
+		
 		// Calculate KPI
 		double ratio = (double) rescinded / acceptances * 100;
 		String ratioFormatted = String.format("%.2f", ratio) + "%";
