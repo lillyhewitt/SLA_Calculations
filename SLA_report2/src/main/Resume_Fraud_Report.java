@@ -169,7 +169,6 @@ public class Resume_Fraud_Report {
 
 		// Add entries of resume fraud to the table
 		int rNew = 2; 
-		int count = 0;
 		for (Pair<String, String> pair : list) {
 			Row rowObj = sheet.getRow(rNew);
 			if (rowObj == null) {
@@ -185,7 +184,6 @@ public class Resume_Fraud_Report {
 			cellFraud.setCellStyle(ExcelStyleUtil.createPlainTableStyle(workbook));
 
 			rNew++; // Move to the next row
-			count++;
 		}
 		sheet.setColumnWidth(8, 256 * 30);
 		sheet.setColumnWidth(9, 256 * 70);

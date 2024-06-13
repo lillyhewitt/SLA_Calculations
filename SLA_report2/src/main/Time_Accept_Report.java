@@ -2,14 +2,10 @@ package main;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-import org.apache.commons.math3.util.Pair;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.*;
@@ -301,16 +297,16 @@ public class Time_Accept_Report {
 				else if(r == 3) {
 					row.setHeightInPoints(60);
 					Cell cell = row.createCell(6+(interval*8));
-					cell.setCellValue("Date rec'd");
+					cell.setCellValue("Date Rec'd");
 					cell.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 					Cell cell2 = row.createCell(7+(interval*8));
-					cell2.setCellValue("Date closed");
+					cell2.setCellValue("Date Closed");
 					cell2.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 					Cell cell3 = row.createCell(8+(interval*8));
-					cell3.setCellValue("weeks on hold");
+					cell3.setCellValue("Weeks on Hold");
 					cell3.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 					Cell cell4 = row.createCell(9+(interval*8));
-					cell4.setCellValue("Business Days = NETWORKDAYS(DATE REC'D,DATE FILLED)-(WEEKS ON HOLD*7)");
+					cell4.setCellValue("Business Days = NETWORKDAYS(Date Rec'd,Date Closed)-(Weeks on Hold*7)");
 					cell4.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 				}
 				else if(r > 3) {
@@ -386,7 +382,6 @@ public class Time_Accept_Report {
 					cell.setCellStyle(ExcelStyleUtil.createNavyTableStyle(workbook));
 				} else if (r == 2) {
 					Cell cell = row.createCell(11+(interval*8));
-					int avg = 0;
 					if(interval == 0) {
 						//	int excKPI = calculateExcKPI(quarter, year, filePath);
 						cell.setCellValue("Days to " + KPIexc + "\n" + (int) fillsExc + " fills / " + (int) daysExc + " days");

@@ -60,7 +60,6 @@ public class Never_Starts_Report {
 						Cell startCell = row.getCell(16);  // Column Q
 						if(startCell != null && startCell.getCellType() == CellType.NUMERIC) {
 							Date startDate = QuarterCheck.getDateFromCell(startCell);
-							Cell vgiCell = row.getCell(0);
 							// check if start date is in the future or starting in this quarter 
 							if (QuarterCheck.isDateInFuture(startDate, quarter, year) || QuarterCheck.isInCorrectQuarter(startDate, quarter, year)) {
 								acceptances++;

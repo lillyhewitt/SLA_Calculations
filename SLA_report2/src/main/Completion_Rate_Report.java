@@ -4,14 +4,10 @@ import org.apache.poi.ss.usermodel.Row;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFRichTextString;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -23,6 +19,7 @@ public class Completion_Rate_Report {
 	public static String KPI = "";
 	public static int headCount = 0;
 	public static int numResources = 0;
+	private XSSFWorkbook workbook;
 
 	// Read from an Excel file
 	public static void read_From_Excel(String fileName, int quarter, int year) {

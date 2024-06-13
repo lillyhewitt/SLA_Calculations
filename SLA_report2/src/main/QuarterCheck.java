@@ -65,10 +65,8 @@ public class QuarterCheck {
 
 	// check if date is in future
 	public static boolean isDateInFuture(Date date, int quarter, int year) {
-		SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.ENGLISH);
 		SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
 
-		String month = monthFormat.format(date);
 		int dateYear = Integer.parseInt(yearFormat.format(date));
 		int dateQuarter = getQuarter(date);
 
@@ -83,10 +81,8 @@ public class QuarterCheck {
 	
 	// check if date is in past
 	public static boolean isDateInPast(Date date, int quarter, int year) {
-		SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.ENGLISH);
 		SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
 
-		String month = monthFormat.format(date);
 		int dateYear = Integer.parseInt(yearFormat.format(date));
 		int dateQuarter = getQuarter(date);
 

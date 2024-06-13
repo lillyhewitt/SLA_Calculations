@@ -142,7 +142,6 @@ public class Main {
 		// write each sheet in the workbookfor (Entry<XSSFSheet, String> entry : allSheets.entrySet()) {
 		for (Entry<XSSFSheet, String> entry : allSheets.entrySet()) {
 			String sheetName = entry.getValue();
-			XSSFSheet sheet = entry.getKey();
 			switch (sheetName) {
 			case "Ratio Resumes to Interviews Exc":
 				Resumes_Interview_Exc_Report.calculateKPI(quarter, year, fileReqPath);

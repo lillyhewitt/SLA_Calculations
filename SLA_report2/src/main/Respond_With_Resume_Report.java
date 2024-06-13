@@ -62,6 +62,8 @@ public class Respond_With_Resume_Report {
 				KPIexc = Double.parseDouble(String.format("%.1f", (double) excDayCounter / excCount));
 				KPInon = Double.parseDouble(String.format("%.1f", (double) nonDayCounter / nonCount));
 			}
+			
+			wb.close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
