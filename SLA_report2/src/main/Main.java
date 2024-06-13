@@ -103,7 +103,9 @@ public class Main {
 		}
 	}
 
+	// creates sheets for report and adds them to a hashmap
 	public static void createSheetsAndAddToMap(XSSFWorkbook workbook, HashMap<XSSFSheet, String> allSheets) {
+		// create sheets for report
 		XSSFSheet SLA_report = workbook.createSheet("SLA - Program Level");
 		XSSFSheet fraudulent_resources = workbook.createSheet("Fraudulent Resources");
 		XSSFSheet resume_to_interviews_exc = workbook.createSheet("Ratio Resumes to Interviews Exc");
@@ -116,6 +118,7 @@ public class Main {
 		XSSFSheet resume_fraud = workbook.createSheet("Resume Fraud");
 		XSSFSheet workforce_turbulence = workbook.createSheet("Provider Workforce Turbulence");
 
+		// add to a Hashmap 
 		allSheets.put(SLA_report, "SLA - Program Level");
 		allSheets.put(fraudulent_resources, "Fraudulent Resources");
 		allSheets.put(resume_to_interviews_exc, "Ratio Resumes to Interviews Exc");
@@ -129,6 +132,7 @@ public class Main {
 		allSheets.put(workforce_turbulence, "Provider Workforce Turbulence");
 	}
 
+	// calculates KPIs for each sheet
 	public static void KPIforQuarter(XSSFWorkbook workbook, HashMap<XSSFSheet, String> allSheets, int quarter, int year, String fileReqPath, String fileEntechPath) {
 		// run Never_Starts_Report 
 		Never_Starts_Report.read_From_Excel(fileEntechPath, quarter, year);
@@ -174,6 +178,7 @@ public class Main {
 		}
 	}
 
+	// writes each sheet in the workbook
 	public static void runQuarter(XSSFWorkbook workbook, HashMap<XSSFSheet, String> allSheets, int quarter, int year, String fileReqPath, String fileEntechPath) {
 		KPIforQuarter(workbook, allSheets, quarter, year, fileReqPath, fileEntechPath);
 		// write each sheet in the workbook

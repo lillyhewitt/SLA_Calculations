@@ -54,6 +54,8 @@ public class Respond_With_Resume_Report {
 						processRow(row, quarter, year, true);
 					}
 				}
+				
+				// calculate KPI
 				KPIexc = (double) excDayCounter / excCount;
 				KPInon = (double) nonDayCounter / nonCount;
 

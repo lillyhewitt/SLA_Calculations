@@ -94,6 +94,7 @@ public class Completion_Rate_Report {
 	}
 
 	public static String calculateKPI(int quarter, int year, String filePath) {
+		// reset variables 
 		KPI = "";
 		headCount = 0;
 		numResources = 0;

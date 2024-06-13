@@ -65,6 +65,7 @@ public class Time_Accept_Report {
 		Date reqCloseDate = null;
 		double weeksOnHold = 0;
 
+		// Check if closed date is in correct quarter
 		Date date = QuarterCheck.getDateFromCell(closeDate);
 		if (date != null && QuarterCheck.isInCorrectQuarter(date, quarter, year)) {
 			// Check if vendor is only Entech and filled by Entech
@@ -104,7 +105,9 @@ public class Time_Accept_Report {
 		}
 	}
 
+	// calculate exclusive KPI
 	public static int calculateExcKPI(int quarter, int year, String filePath) {
+		// reset variables
 		KPIexc = 0;
 		listExc = new ArrayList<>();
 		KPInon = 0;
@@ -113,10 +116,11 @@ public class Time_Accept_Report {
 		// Get time took to accept position
 		read_From_Excel(filePath, quarter, year);
 
-		// Calculate KPI
+		// reset variables
 		fillsExc = 0;
 		daysExc = 0;
-		// Create 2 tables for exclusive and non-exclusive
+		
+		// loop through list to find filled and received dates
 		for(int r = 0; r < 309; r++) {
 			if(r > 3) {
 				int listIndex = r - 4; 
@@ -131,19 +135,22 @@ public class Time_Accept_Report {
 					daysExc += days;
 				}
 			}
-
 		}
+		
+		// calculate KPI
 		double avg =  daysExc / fillsExc;
 		KPIexc = (int) avg;
 
 		return KPIexc;
 	}
 
+	// calculate non-exclusive KPI
 	public static int calculateNonKPI(int quarter, int year, String filePath) {
-		// Calculate KPI
+		// reset variables
 		fillsNon = 0;
 		daysNon = 0;
 
+		// loop through list to find filled and received dates
 		for(int r = 0; r < 309; r++) {
 			if(r > 3) {
 				int listIndex = r - 4; 
@@ -158,6 +165,8 @@ public class Time_Accept_Report {
 				}
 			}
 		}
+		
+		// calculate KPI
 		double avg = daysNon / fillsNon;
 		KPInon = (int) avg;
 		return KPInon;

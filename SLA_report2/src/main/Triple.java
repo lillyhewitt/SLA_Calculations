@@ -49,7 +49,6 @@ public class Triple {
 	}
 
 	// calculate business days between two dates
-
 	public int calculateBusinessDays() {
 		if (date1 == null || date2 == null) {
 			throw new IllegalArgumentException("Dates must not be null");

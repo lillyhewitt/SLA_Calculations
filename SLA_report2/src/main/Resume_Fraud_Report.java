@@ -65,7 +65,6 @@ public class Resume_Fraud_Report {
 					rowIndex++; // skip table header
 				}
 			}
-
 			wb.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,12 +81,14 @@ public class Resume_Fraud_Report {
 	}
 
 	public static int calculateKPI(int quarter, int year, String filePath) {
+		// reset variables
 		KPI = 0;
 		list = new ArrayList<>();
 		fraudCount = 0;
 
 		// collect fraud resumes
 		read_From_Excel(filePath, quarter, year);
+		
 		// Calculate KPI
 		int count = 0;
 		for (Pair<String, String> pair : list) {

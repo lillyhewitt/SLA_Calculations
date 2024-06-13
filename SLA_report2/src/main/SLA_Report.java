@@ -98,10 +98,11 @@ public class SLA_Report {
 			ArrayList<String> kpiHeaders = new ArrayList<>(Arrays.asList("Interview to Hire Ratio (Timely Delivery of Resources", "Time to Fill Ratio", "Contractor Performance", "Failed Hires", "Assignment Completion Rate", "Resume Fraud/Proxy or Imposter Canidadate", "Provider Workforce Turbulence (Attrition)"));
 			ArrayList<String> kpiDescriptions = new ArrayList<>(Arrays.asList("Respond with Resume (exclusive) in 2 weeks(open to all after 2 weeks)", "Respond with Resume(non-exclusive)", "Ratio of resumes to interviews(exclusive)", "Ratio of resumes to interviews(non-exclusive)", "Number of Offers declined (exclusive and non-exclusive) Track quarterly - on a trial basis ", "Number of Never Starts (selected candidates who failed to start for exclusive and non-exclusive )", "Fill rate - % of jobs filled vs % jobs received (exclusive) Note: Cancelled jobs excluded", "Fill Rate - % of jobs filled vs % jobs received(non-exclusive)", "Time to accept /to position fulfillment (exclusive)", "Time to accept /to position fulfillment (non-exclusive)", "%  of contractors that are meeting acceptable performance level.", "% of failed hires or ended prematurely due to negative reasons", "% of contractors fulfilling the anticipated duration of the job assignments (before the 3 year limit)", "Number of contractors presented who are identified as fraudulent", "No of resources leaving the account in the quarter/Headcount of the account at the end of the quarter"));
 			ArrayList<Object> kpiList = getKPIList();
-
 			ArrayList<String> greenVals = new ArrayList<>(Arrays.asList("<=10 days", "<=10 days", ">50%", ">50%", "<5%", "<5%", ">85%", "25%", "20 Business Days", "20 Business Days", ">95%", "<5%", ">90%", "0", "<=15%"));
 			ArrayList<String> yellowVals = new ArrayList<>(Arrays.asList("N/A", "N/A", "<50-33%", "<50-33%", "5-10%", "5-10%", "<85-80%", "<24-20%", ">21 Business Days", ">21 Business Days", "<95-90%", "N/A", "<90-80%", " ", "N/A"));
 			ArrayList<String> redVals = new ArrayList<>(Arrays.asList(">10 days", ">10 days", "<33%", "<33%", ">10%", ">10%", "<80%", "<20%", ">31 Business Days", ">31 Business Days", "<90%", ">5%", "<80%", ">0", ">15%"));
+			
+			// create style for table and set text using lists above
 			int skip = 0;
 			for (int row = 3; row < 18; row++) {
 				Row rowObj = sheet.getRow(row);
@@ -111,6 +112,7 @@ public class SLA_Report {
 				Cell cell = rowObj.createCell(1);
 				cell.setCellStyle(ExcelStyleUtil.createBrownStyle(workbook));
 
+				// set KPI Headers column
 				Cell cell2 = rowObj.createCell(3);
 				cell2.setCellStyle(ExcelStyleUtil.createSLAheaders(workbook));
 				if(row == 3) {
@@ -124,11 +126,13 @@ public class SLA_Report {
 					skip++;
 				}
 
+				// set KPI descriptions column
 				Cell cell3 = rowObj.createCell(4);
 				cell3.setCellStyle(ExcelStyleUtil.createSLAdescriptors(workbook));
 				cell3.setCellValue(kpiDescriptions.get(row - 3));
 				sheet.setColumnWidth(4, 256 * 60);
 
+				// set KPI column
 				Cell cell4 = rowObj.createCell(5);
 				Double kpiValue = extractDoubleFromString(kpiList.get(row - 3).toString());
 				cell4.setCellValue(kpiList.get(row - 3).toString());
@@ -242,6 +246,7 @@ public class SLA_Report {
 		}
 	}
 
+	// make string into double
 	public static Double extractDoubleFromString(String str) {
 		// Use regular expression to find a numeric value in the string
 		Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
@@ -256,6 +261,7 @@ public class SLA_Report {
 		return 0.0;
 	}
 
+	// constructor
 	static class Threshold {
 		double minValue;
 		double maxValue;
@@ -268,6 +274,7 @@ public class SLA_Report {
 		}
 	}
 
+	// set style based on KPI value
 	public static void setCellStyleBasedOnString(XSSFWorkbook workbook, Cell cell, Double kpiValue, int rowNum) {
 		// Define thresholds and styles for each row range
 		Map<Integer, Threshold[]> thresholds = new HashMap<>();
@@ -310,7 +317,7 @@ public class SLA_Report {
 		}
 	}
 
-
+	// update KPI for each metric 
 	public ArrayList<Object> getKPIList() {
 		ArrayList<Object> kpiList = new ArrayList<>(Arrays.asList(
 				Respond_With_Resume_Report.KPIexc, 

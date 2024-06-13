@@ -74,7 +74,7 @@ public class Workplace_Turbulence_Report {
 	private static void processRow(Row row, int quarter, int year) {
 		Cell endCell = row.getCell(17);  // Column R
 		Cell startCell = row.getCell(16);  // Column Q
-
+ 
 		if(startCell != null && startCell.getCellType() == CellType.NUMERIC && endCell != null && endCell.getCellType() == CellType.NUMERIC) {
 			Date startDate = QuarterCheck.getDateFromCell(startCell);
 			Date endDate = QuarterCheck.getDateFromCell(endCell);
@@ -89,13 +89,16 @@ public class Workplace_Turbulence_Report {
 		}
 	}
 
+	// calculate KPI
 	public static String calculateKPI(int quarter, int year, String filePath) {
+		// reset variables
 		KPI = "";
 		headCount = 0;
 		numResources = 0;
 
 		// Get # of failed hires and headcount
 		read_From_Excel(filePath, quarter, year);
+		
 		// Calculate KPI
 		if(headCount > 0) {
 			double ratio = (double) numResources / headCount * 100;

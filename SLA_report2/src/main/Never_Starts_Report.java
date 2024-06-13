@@ -108,6 +108,8 @@ public class Never_Starts_Report {
 			}
 			// add data to list 
 			list.add(Pair.create(acceptances, rescinded));
+			
+			// calculate KPI
 			double ratio = (double) rescinded / acceptances * 100;
 			String ratioFormatted = String.format("%.2f", ratio) + "%";
 			KPI = ratioFormatted;
@@ -119,6 +121,7 @@ public class Never_Starts_Report {
 	}
 
 	public static String calculateKPI(int quarter, int year, String filePath) {
+		// reset variables
 		KPI = "";
 		list = new ArrayList<>();
 		acceptances = 0;

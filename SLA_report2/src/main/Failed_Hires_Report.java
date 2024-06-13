@@ -102,6 +102,7 @@ public class Failed_Hires_Report {
 	}
 
 	public static String calculateKPI(int quarter, int year, String filePath) {
+		// reset variable 
 		KPI = "";
 
 		// Calculate KPI
@@ -114,6 +115,7 @@ public class Failed_Hires_Report {
 	}
 
 	public static String calculateAcceptableKPI(int quarter, int year, String filePath) {
+		// reset variables
 		KPIaccepted = "";
 		headCount = 0;
 		successfulHires = 0;

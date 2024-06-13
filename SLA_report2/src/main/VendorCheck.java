@@ -4,7 +4,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 
 public class VendorCheck {
-	// Check if the vendor is valid
+	// Check if the vendor is All or a form of Entech
 	public static boolean isValidVendor(Cell cell) {
 		if (cell != null && cell.getCellType() == CellType.STRING) {
 			String value = cell.getStringCellValue();

@@ -72,8 +72,10 @@ public class Offers_Declined_Report {
 		Cell declineReasonCell = row.getCell(24);  // Column Y
 		Cell offerCell = isClosedSheet ? row.getCell(38) : null;  // Column AM for closed sheet
 
+		// check if Open or Closed Date is in this quarter
 		Date date = QuarterCheck.getDateFromCell(dateCell);
 		if (date != null && QuarterCheck.isInCorrectQuarter(date, quarter, year)) {
+			// Check if vendor is All + Entech
 			if (VendorCheck.isValidVendor(vendorCell)) {
 				// increase number of declined offers if status is not cancelled and declined reason is found in Close tab
 				if (isClosedSheet && statusCell != null && !"C".equals(statusCell.getStringCellValue()) && containsDecline(declineReasonCell)) {
@@ -91,8 +93,7 @@ public class Offers_Declined_Report {
 		}
 	}
 
-	// Check if cell contains the word "decline"
-
+	// Check if cell contains the word "decline" starting with "e -" or "e-" on the line 
 	private static boolean containsDecline(Cell cell) {
 		if (cell != null && cell.getCellType() == CellType.STRING) {
 			String cellValue = cell.getStringCellValue().toLowerCase();
@@ -100,6 +101,7 @@ public class Offers_Declined_Report {
 			if (cellValue.contains("e -") && cellValue.contains("decline")) {
 				return true;
 			}
+			// Check if the cell value contains "e-" and "decline"
 			else if (cellValue.contains("e-") && cellValue.contains("decline")) {
 				return true;
 			}
@@ -108,6 +110,7 @@ public class Offers_Declined_Report {
 	}
 
 	public static String calculateKPI(int quarter, int year, String filePath) {
+		// reset variables
 		KPI = "";
 		declinedOffers = 0;
 		numOffers = 0;

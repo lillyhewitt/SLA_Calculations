@@ -80,6 +80,7 @@ public class QuarterCheck {
 
 		return false;
 	}
+	
 	// check if date is in past
 	public static boolean isDateInPast(Date date, int quarter, int year) {
 		SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.ENGLISH);
@@ -98,13 +99,12 @@ public class QuarterCheck {
 		return false;
 	}
 
+	// get the quarter of a date
 	private static int getQuarter(Date date) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		int month = cal.get(Calendar.MONTH) + 1;
 		return (month + 2) / 3;
 	}
-
-
 }
 

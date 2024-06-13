@@ -75,8 +75,10 @@ public class Fill_Rate_Report {
 		Cell vendorCell = row.getCell(13);  // Column N
 		Cell offerCell = isClosedSheet ? row.getCell(38) : null; // Column AM 
 
+		// check close date for this quarter
 		Date date = isClosedSheet ? QuarterCheck.getDateFromCell(closeCell) : null;
 		if (date != null && QuarterCheck.isInCorrectQuarter(date, quarter, year)) {
+			// check if vendor is Etnech
 			if( VendorCheck.isJustVendor(vendorCell)) {
 				// increase exclusive job filled when offer cell is "E" and just Entech with an end date in this quarter
 				if(offerCell != null && "E".equals(offerCell.getStringCellValue())) {
@@ -88,6 +90,7 @@ public class Fill_Rate_Report {
 					jobsReceivedExc++;
 				}
 			}
+			// check if vendor is All
 			if( VendorCheck.isAllVendor(vendorCell)) {
 				// increase nonexclusive job filled when offer cell is "E" and All vendors with an end date in this quarter
 				if(offerCell != null && "E".equals(offerCell.getStringCellValue())) {
@@ -102,6 +105,7 @@ public class Fill_Rate_Report {
 		}
 		if(!isClosedSheet) { // row in an open sheet
 			Date openDate = QuarterCheck.getDateFromCell(openedCell);
+			// check if open date is in this quarter
 			if (openDate != null && QuarterCheck.isInCorrectQuarter(openDate, quarter, year)) {
 				// increase exclusive job filled when just Entech with an open date in this quarter
 				if(VendorCheck.isJustVendor(vendorCell) ) {
@@ -116,6 +120,7 @@ public class Fill_Rate_Report {
 	}
 
 	public static String calculateExcKPI(int quarter, int year, String filePath) {
+		// reset variables
 		KPIexc = "";
 		jobsFilledExc = 0;
 		jobsReceivedExc = 0;

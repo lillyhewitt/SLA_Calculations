@@ -72,9 +72,11 @@ public class Resumes_Interview_Exc_Report {
 		int submitted = 0;
 		int interviews = 0;
 
+		// check if open date is in this quarter
 		Date date = QuarterCheck.getDateFromCell(dateCell);
 		if (date != null && QuarterCheck.isInCorrectQuarter(date, quarter, year)) {
-			if (VendorCheck.isJustVendor(vendorCell)) { // check for just Entech as vendor
+			// check for just Entech as vendor
+			if (VendorCheck.isJustVendor(vendorCell)) { 
 				// If status is not cancelled and submittedResCell has a numeric value, increase the submitted count on Closed tab
 				if (isClosedSheet && fillCell != null && !"C".equals(fillCell.getStringCellValue())) {
 					if(submittedResCell != null && submittedResCell.getCellType() != CellType.STRING) {
@@ -100,6 +102,7 @@ public class Resumes_Interview_Exc_Report {
 		}
 	}
 
+	// count amount of interviews conducted, only on lines starting with "e" and containing "int"
 	private static int countInts(Cell cell) {
 		int countInts = 0;
 		if (cell != null && cell.getCellType() == CellType.STRING) {
@@ -124,7 +127,9 @@ public class Resumes_Interview_Exc_Report {
 		return countInts;
 	}
 
+	// calculate KPI
 	public static String calculateKPI(int quarter, int year, String filePath) {
+		// reset variables
 		KPI = "";
 		list = new ArrayList<>();
 
