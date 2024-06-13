@@ -19,4 +19,13 @@ parse excel spreadsheet to create SLA reports for Entech
 16. Enter the inputs instructed and file should be created based on the path you provide
 17. To configure a path of both files: right click on the file, click properties then combine "Location", "name", and ".xlsx" together (ie. Location: C:\User\name\Desktop and Resource Roster would be C:\User\name\Desktop\Resource Roster.xlsx)
 18. Repeat for where you want to write your file to (ie. if you want to save to desktop, input path C:\User\name\Desktop\Entech IT Staff MON XQ20XX.xlsx)
-19. Once program completes, file will be saved to path you specified 
+19. Once program completes, file will be saved to path you specified
+
+## Rules for the Contract Report
+1. Updated "Resume Submitted" tab accurately
+2. Include date after sub or int/intv in MM/DD format (ie. sub 4/16 or int 12/1)
+3. When including multiple interviews, break up with a "," even if on the same day make 2 inputs (ie. int 4/15, int 4/18 or int 2/3, int 2/3)
+
+## Rules for the Resource Roster
+1. Add "old" to notes of resume fraud entry to not be counted towards current quarter
+2. For terminations, add "fail" to count as a failed hire (to ensure budget and issues like that are not counted in metric)
