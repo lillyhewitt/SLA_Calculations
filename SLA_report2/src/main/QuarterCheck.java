@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -78,7 +79,7 @@ public class QuarterCheck {
 
 		return false;
 	}
-	
+
 	// check if date is in past
 	public static boolean isDateInPast(Date date, int quarter, int year) {
 		SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
@@ -101,6 +102,19 @@ public class QuarterCheck {
 		cal.setTime(date);
 		int month = cal.get(Calendar.MONTH) + 1;
 		return (month + 2) / 3;
+	}
+
+	// checks if time between start and end date is under 3 years
+	public static boolean isUnderThreeYears(Date startDate, Date endDate) {
+
+		long diffInMillies = Math.abs(endDate.getTime() - startDate.getTime());
+		long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+
+		if (diff > (365 * 3)) {
+			return false;
+		}
+		
+		return true;
 	}
 }
 

@@ -327,9 +327,9 @@ public class Fill_Rate_Report {
 				cell2.setCellStyle(ExcelStyleUtil.createYellowStyle(workbook));
 				Cell cell3 = row.createCell(8);
 				if(r == 6) {
-					cell3.setCellValue(" = " + jobsFilledExc + " / " + jobsReceivedExc + " *100");
+					cell3.setCellValue(" = " + jobsFilledExc + " / " + jobsReceivedExc + " * 100");
 				} else {
-					cell3.setCellValue(" = " + jobsFilledNon + " / " + jobsReceivedNon + " *100");
+					cell3.setCellValue(" = " + jobsFilledNon + " / " + jobsReceivedNon + " * 100");
 				}
 				cell3.setCellStyle(ExcelStyleUtil.createPlainTableStyle(workbook));
 			}

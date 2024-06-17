@@ -306,7 +306,7 @@ public class Time_Accept_Report {
 					cell3.setCellValue("Weeks on Hold");
 					cell3.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 					Cell cell4 = row.createCell(9+(interval*8));
-					cell4.setCellValue("Business Days = NETWORKDAYS(Date Rec'd,Date Closed)-(Weeks on Hold*7)");
+					cell4.setCellValue("Business Days = NETWORKDAYS(Date Rec'd,Date Closed) - (Weeks on Hold*7)");
 					cell4.setCellStyle(ExcelStyleUtil.createPlainTableHeaderStyle(workbook));
 				}
 				else if(r > 3) {

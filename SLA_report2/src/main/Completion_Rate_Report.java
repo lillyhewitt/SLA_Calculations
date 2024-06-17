@@ -82,8 +82,8 @@ public class Completion_Rate_Report {
 			// check if start date is in the future (after this quarter) or end date has past 
 			if (!QuarterCheck.isDateInFuture(startDate, quarter, year) && !QuarterCheck.isDateInPast(endDate, quarter, year)) {
 				headCount++;
-				// check if ending date is during this quarter
-				if (endDate != null && QuarterCheck.isInCorrectQuarter(endDate, quarter, year)) {
+				// check if ending date is during this quarter and under 3 years
+				if (endDate != null && QuarterCheck.isInCorrectQuarter(endDate, quarter, year)  && QuarterCheck.isUnderThreeYears(startDate, endDate)) {
 					numResources++;
 				}
 			}
@@ -242,12 +242,12 @@ public class Completion_Rate_Report {
 				cell2.setCellValue(calculateKPI(quarter, year, filePath));
 				cell2.setCellStyle(ExcelStyleUtil.createYellowStyle(workbook));
 				Cell cell3 = row.createCell(8);
-				cell3.setCellValue(" = " + (headCount-numResources) + " / " + headCount + " * 100");
+				cell3.setCellValue(" = (" + headCount + " - " + numResources + ") / " + headCount + " * 100");
 				cell3.setCellStyle(ExcelStyleUtil.createPlainTableStyle(workbook));
 			}
 		}
 		sheet.setColumnWidth(6, 256 * 45);
 		sheet.setColumnWidth(7, 256 * 10);
-		sheet.setColumnWidth(8, 256 * 15);
+		sheet.setColumnWidth(8, 256 * 20);
 	}
 }
