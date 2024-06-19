@@ -100,7 +100,7 @@ public class Respond_With_Resume_Report {
 			String cellValue = cell.getStringCellValue().toLowerCase();
 
 			// Define the pattern to match "Sent to All" or "Sent to Entech" followed by a date
-			Pattern pattern = Pattern.compile("(sent to all|sent to entech)\\s*(\\d{1,2}/\\d{1,2})");
+			Pattern pattern = Pattern.compile("(sent to all|sent to entech)(\\s*\\+\\s*(niche|nice))?\\s*(\\d{1,2}/\\d{1,2})");
 			Matcher matcher = pattern.matcher(cellValue);
 
 			// If the pattern is found, return the date
